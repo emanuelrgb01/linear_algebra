@@ -11,7 +11,7 @@ def sub_inv(A, b):
             S = S + A[line][column]*b[column]
         b[line] = (b[line] - S)/A[line][line]
 
-    print(b)
+    return b
 
 
 if __name__ == '__main__':
@@ -21,6 +21,6 @@ if __name__ == '__main__':
 
     b = np.array([[1],
                   [0],
-                  [0]], np.float64)
+                  [2]], np.float64)
 
-    sub_inv(A, b)
+    print(f'x = {sub_inv(A, b)}')
