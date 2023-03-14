@@ -30,6 +30,7 @@ def gaussian_elimination(A, b):
     return sub_inv(A, b)
 
 
+# Example
 if __name__ == '__main__':
     A = np.array([[2, 1, 1],
                   [4, 3, 3],
