@@ -1,13 +1,13 @@
 import numpy as np
 
 
-def sub_inv(A, b):
+def back_substitution(A, b):
     for line in range(len(A)-1, -1, -1):
         if abs(A[line][line]) < 1e-12:
             print("Error")
             return
         S = 0
-        for column in range(line+1, len(A)-1, 1):
+        for column in range(line+1, len(A), 1):
             S = S + A[line][column]*b[column]
         b[line] = (b[line] - S)/A[line][line]
 
@@ -24,4 +24,4 @@ if __name__ == '__main__':
                   [0],
                   [2]], np.float64)
 
-    print(f'x = {sub_inv(A, b)}')
+    print(f'x = {back_substitution(A, b)}')

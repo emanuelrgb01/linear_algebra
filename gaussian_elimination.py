@@ -1,13 +1,13 @@
 import numpy as np
 
 
-def sub_inv(A, b):
+def back_substitution(A, b):
     for line in range(len(A)-1, -1, -1):
         if abs(A[line][line]) < 1e-12:
             print("Error")
             return
         S = 0
-        for column in range(line+1, len(A)-1, 1):
+        for column in range(line+1, len(A), 1):
             S = S + A[line][column]*b[column]
         b[line] = (b[line] - S)/A[line][line]
 
@@ -27,7 +27,7 @@ def gaussian_elimination(A, b):
             for column in range(step+1, n+1, 1):
                 A[line][column] = A[line][column] - m*A[step][column]
 
-    return sub_inv(A, b)
+    return back_substitution(A, b)
 
 
 # Example
