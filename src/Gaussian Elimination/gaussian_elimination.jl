@@ -30,9 +30,7 @@ function gaussian_elimination(A::Array{Float64,2}, b::Array{Float64,1})
       end
     end
   end
-  display(A)
-  x = back_substitution(A, b)
-  return x
+  return back_substitution(A, b)
 end
 
 # Example
